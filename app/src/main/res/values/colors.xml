@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+
+
+        <color name="primary">#0FA958</color>
+        <color name="bg">#FFFFFFFF</color>
+        <color name="divider">#1F000000</color>
+        <color name="dotGrey">#FF9E9E9E</color>
+        <color name="iconBg">#1A0FA958</color>
+        <color name="white">#FFFFFFFF</color>
+    <color name="yellow"> #F2CB02</color>
+
+
+    #F2CB02
+    </resources>
+

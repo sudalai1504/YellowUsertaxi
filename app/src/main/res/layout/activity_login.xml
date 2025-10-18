@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".Login">
+
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log In"
+        android:textSize="28sp"
+
+        android:textStyle="bold"
+        android:layout_marginTop="80dp"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- Name Field -->
+<!--    <EditText-->
+<!--        android:id="@+id/etName"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:hint="Name"-->
+<!--        android:background="@drawable/edittext_background"-->
+<!--        android:padding="10dp"-->
+<!--        android:layout_marginTop="20dp" />-->
+
+    <!-- Email Field -->
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Name"
+        android:background="@drawable/edittext_background"
+        android:padding="10dp"
+        android:layout_marginTop="20dp" />
+
+    <!-- Password Field -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+
+        android:background="@drawable/edittext_background">
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@id/ivTogglePassword"
+            android:background="@android:color/transparent"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/ivTogglePassword"
+            android:layout_width="49dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:textColor="#FFC107"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="6dp"
+
+            android:text="Show" />
+    </RelativeLayout>
+
+
+    <!-- Checkbox -->
+<!--    <CheckBox-->
+<!--        android:id="@+id/cbNewsletter"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="I would like to receive your newsletter and other promotional information."-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:textSize="14sp" />-->
+
+    <!-- Sign Up Button -->
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="326dp"
+        android:layout_height="61dp"
+
+        android:layout_marginTop="35dp"
+        android:backgroundTint="#FFC107"
+        android:text="Sign Up"
+        android:textColor="#FFFFFF" />
+
+    <!-- Forgot Password -->
+    <TextView
+        android:id="@+id/tvcreatenewaccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CREATE NEW ACCOUNT"
+        android:textColor="#FFC107"
+        android:textSize="14sp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_horizontal" />
+    <TextView
+        android:id="@+id/tvForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot your password?"
+        android:textColor="#FFC107"
+        android:textSize="14sp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

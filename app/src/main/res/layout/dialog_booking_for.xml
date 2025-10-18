@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/bg_dialog_round">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Booking For"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+
+        android:padding="8dp" />
+
+    <!-- Radio Group -->
+    <RadioGroup
+        android:id="@+id/radioGroupBooking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/radioPersonal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_border"
+            android:text="Personal"
+            android:checked="true"
+            android:textSize="14sp"
+            android:textColor="#000000"
+            android:padding="12dp"
+          />
+
+        <RadioButton
+            android:id="@+id/radioOthers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="#FFD600"
+            android:text="Others (Choose From Contact)"
+            android:textSize="14sp"
+            android:textColor="#000000"
+            android:padding="12dp"
+            android:background="@drawable/edittext_border"
+            android:layout_marginTop="8dp" />
+
+<!--        <RadioButton-->
+<!--            android:id="@+id/radioManual"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:buttonTint="#FFD600"-->
+<!--            android:text="Manual"-->
+<!--            android:textSize="14sp"-->
+<!--            android:textColor="#000000"-->
+<!--            android:padding="12dp"-->
+<!--            android:background="@drawable/edittext_border"-->
+<!--            android:layout_marginTop="8dp" />-->
+    </RadioGroup>
+
+    <!-- Done Button -->
+    <Button
+        android:id="@+id/btnDoneBookingFor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FFD600"
+        android:text="Done"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+</LinearLayout>

@@ -1,0 +1,4 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/white"/> <!-- பின்னணி நிறம் (இருட்டாக வேண்டும் என்றால் black) -->
+</shape>

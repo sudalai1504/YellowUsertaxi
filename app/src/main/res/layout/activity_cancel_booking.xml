@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <!-- Top App Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="40dp"
+        android:padding="16dp"
+      >
+
+<!--        <ImageView-->
+<!--            android:id="@+id/btnClose"-->
+<!--            android:layout_width="24dp"-->
+<!--            android:layout_height="24dp"-->
+<!--            android:src="@drawable/ic_close"-->
+<!--            android:contentDescription="Close" />-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel Booking"
+            android:textSize="18sp"
+            android:textColor="@android:color/background_dark"
+            android:layout_marginStart="16dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- Image Section -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:gravity="center"
+       >
+
+        <ImageView
+            android:id="@+id/carIcon"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/cancleride" />
+
+<!--        <ImageView-->
+<!--            android:id="@+id/cancelIcon"-->
+<!--            android:layout_width="36dp"-->
+<!--            android:layout_height="36dp"-->
+<!--            android:src="@drawable/ic_cancel_red"-->
+<!--            android:layout_alignEnd="@id/carIcon"-->
+<!--            android:layout_alignTop="@id/carIcon"/>-->
+    </RelativeLayout>
+
+    <!-- Bottom Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Why do you want to cancel?"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"/>
+
+        <RadioGroup
+            android:id="@+id/radioGroupReasons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radioDontNeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I don't need this journey."/>
+
+            <RadioButton
+                android:id="@+id/radioChangeDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I want to change the details of the journey."/>
+
+            <RadioButton
+                android:id="@+id/radioDriverLate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The driver took too long to be appointed."/>
+
+            <RadioButton
+                android:id="@+id/radioOther"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnSend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:backgroundTint="#FFC107"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="24dp"
+            android:padding="12dp"/>
+    </LinearLayout>
+
+</LinearLayout>
