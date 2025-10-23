@@ -4,15 +4,14 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
-import android.media.Image
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.ImageView
-import androidx.activity.OnBackPressedCallback
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -29,70 +28,145 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
-    private lateinit var navigationView: NavigationView
+
+    private lateinit var tabLocal: LinearLayout
+    private lateinit var tabRental: LinearLayout
+    private lateinit var tabOutstation: LinearLayout
+
+    private lateinit var textLocal: TextView
+    private lateinit var textRental: TextView
+    private lateinit var textOutstation: TextView
+
+    private lateinit var oneHr: TextView
+    private lateinit var twoHrs: TextView
+    private lateinit var threeHrs: TextView
+    private lateinit var fourHrs: TextView
+
+    private lateinit var etPickup: EditText
+    private lateinit var pickupLayout: LinearLayout
+
     private lateinit var drawerLayout: DrawerLayout
-    private lateinit var btnMenu: ImageView
+    private lateinit var navigationView: NavigationView
+    private lateinit var btnMenu: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Drawer setup
         drawerLayout = findViewById(R.id.drawerLayout)
         navigationView = findViewById(R.id.navigationView)
         btnMenu = findViewById(R.id.btnMenu)
-        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                // Example → splashscreen activity க்கு போகணும்னா
-                val intent = Intent(this@MainActivity, Login::class.java)
-                startActivity(intent)
-                finish()
-            }
-        })
-        // 👉 Menu button click → open drawer
+
         btnMenu.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
-        // 👉 Navigation header click (profile)
-        val headerViews = navigationView.getHeaderView(0)
-        headerViews.findViewById<View>(R.id.profileCard).setOnClickListener {
+        val headerView = navigationView.getHeaderView(0)
+        val profileCard = headerView.findViewById<View>(R.id.profileCard)
+        profileCard.setOnClickListener {
             startActivity(Intent(this, selectride::class.java))
             drawerLayout.closeDrawer(GravityCompat.START)
         }
 
-        // 👉 "Where to?" click → go to Locationsearch
-        val btnGetStarted = findViewById<EditText>(R.id.etTo)
-        btnGetStarted.setOnClickListener {
-            val intent = Intent(this, Locationsearch::class.java)
-            startActivity(intent)
-            finish()
+        // Tabs
+        tabLocal = findViewById(R.id.tabLocal)
+        tabRental = findViewById(R.id.tabRental)
+        tabOutstation = findViewById(R.id.tabOutstation)
+
+        textLocal = findViewById(R.id.textLocal)
+        textRental = findViewById(R.id.textRental)
+        textOutstation = findViewById(R.id.textOutstation)
+
+        // Rental package options
+        oneHr = findViewById(R.id.oneHr)
+        twoHrs = findViewById(R.id.twoHrs)
+        threeHrs = findViewById(R.id.threeHrs)
+        fourHrs = findViewById(R.id.fourHrs)
+
+        // Pickup layout and EditText
+        pickupLayout = findViewById(R.id.pickupLayout)
+        etPickup = findViewById(R.id.etTo)
+
+        etPickup.setOnClickListener {
+            startActivity(Intent(this, Locationsearch::class.java))
         }
 
-        // Google Map Fragment
-        val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
+        // Google Map setup
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
-        // ✅ Proper back press handling
-        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                    drawerLayout.closeDrawer(GravityCompat.START)
-                } else {
-                    isEnabled = false
-                    onBackPressedDispatcher.onBackPressed() // default behaviour
-                }
-            }
-        })
+        // Tab click listeners
+        tabLocal.setOnClickListener { showLocalPackages() }
+        tabRental.setOnClickListener { showRentalPackages() }
+        tabOutstation.setOnClickListener { showOutstationPackages() }
+
+        // Default: show Local tab
+        showLocalPackages()
+    }
+
+    private fun resetTabStyles() {
+        textLocal.setBackgroundResource(0)
+        textRental.setBackgroundResource(0)
+        textOutstation.setBackgroundResource(0)
+
+        val gray = ContextCompat.getColor(this, android.R.color.darker_gray)
+        textLocal.setTextColor(gray)
+        textRental.setTextColor(gray)
+        textOutstation.setTextColor(gray)
+    }
+
+    private fun showRentalPackages() {
+        resetTabStyles()
+        textRental.setBackgroundResource(R.drawable.tab_selected_bg)
+        textRental.setTextColor(ContextCompat.getColor(this, android.R.color.white))
+
+        // Hide pickup layout
+        pickupLayout.visibility = View.GONE
+
+        // Show rental hour options
+        oneHr.visibility = View.VISIBLE
+        twoHrs.visibility = View.VISIBLE
+        threeHrs.visibility = View.VISIBLE
+        fourHrs.visibility = View.VISIBLE
+    }
+
+    private fun showLocalPackages() {
+        resetTabStyles()
+        textLocal.setBackgroundResource(R.drawable.tab_selected_bg)
+        textLocal.setTextColor(ContextCompat.getColor(this, android.R.color.white))
+
+        // Show pickup layout
+        pickupLayout.visibility = View.VISIBLE
+
+        // Hide rental hour options
+        oneHr.visibility = View.GONE
+        twoHrs.visibility = View.GONE
+        threeHrs.visibility = View.GONE
+        fourHrs.visibility = View.GONE
+    }
+
+    private fun showOutstationPackages() {
+        resetTabStyles()
+        textOutstation.setBackgroundResource(R.drawable.tab_selected_bg)
+        textOutstation.setTextColor(ContextCompat.getColor(this, android.R.color.white))
+
+        // Show pickup layout
+        pickupLayout.visibility = View.VISIBLE
+
+        // Hide rental hour options
+        oneHr.visibility = View.GONE
+        twoHrs.visibility = View.GONE
+        threeHrs.visibility = View.GONE
+        fourHrs.visibility = View.GONE
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-
-        val newYork = LatLng(40.748817, -73.985428)
-        mMap.addMarker(MarkerOptions().position(newYork).title("Pickup Location"))
+        val default = LatLng(37.4221, -122.0841)
+        mMap.addMarker(MarkerOptions().position(default).title("Pickup Location"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(default, 14f))
 
         if (ActivityCompat.checkSelfPermission(
                 this, Manifest.permission.ACCESS_FINE_LOCATION
@@ -107,30 +181,11 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
         mMap.isMyLocationEnabled = true
-
-        fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
-            location?.let {
-                val currentLatLng = LatLng(it.latitude, it.longitude)
-                mMap.addMarker(
-                    MarkerOptions().position(currentLatLng).title("You are here")
-                )
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 14f))
-            } ?: run {
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newYork, 14f))
+        fusedLocationClient.lastLocation.addOnSuccessListener { loc: Location? ->
+            loc?.let {
+                val current = LatLng(it.latitude, it.longitude)
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 14f))
             }
-        }
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == 1 && grantResults.isNotEmpty() &&
-            grantResults[0] == PackageManager.PERMISSION_GRANTED
-        ) {
-            onMapReady(mMap)
         }
     }
 }

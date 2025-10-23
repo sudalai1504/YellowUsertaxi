@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
 
     <application
         android:allowBackup="true"
@@ -14,6 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Taxibooking">
+        <activity
+            android:name=".ForgotPassword.forgotpasswordotp"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPassword.forgotpassword"
+            android:exported="false" />
         <activity
             android:name=".cancel_booking"
             android:exported="false" />
@@ -29,12 +35,9 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAjitXRwC0eML6lWmJgUdlL5RQfwv8XhGo" />
-
-<!--        <meta-data-->
-<!--            android:name="com.google.android.geo.API_KEY"-->
-<!--            android:value="AIzaSyCfQXdehEqZ4E_e3WZ1CfyNyA8-W2ZnaRk" />-->
-
+            android:value="AIzaSyAjitXRwC0eML6lWmJgUdlL5RQfwv8XhGo" /> <!-- <meta-data -->
+        <!-- android:name="com.google.android.geo.API_KEY" -->
+        <!-- android:value="AIzaSyCfQXdehEqZ4E_e3WZ1CfyNyA8-W2ZnaRk" /> -->
         <activity
             android:name=".Login"
             android:exported="false" />

@@ -13,15 +13,7 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:layout_marginTop="40dp"
-        android:padding="16dp"
-      >
-
-<!--        <ImageView-->
-<!--            android:id="@+id/btnClose"-->
-<!--            android:layout_width="24dp"-->
-<!--            android:layout_height="24dp"-->
-<!--            android:src="@drawable/ic_close"-->
-<!--            android:contentDescription="Close" />-->
+        android:padding="16dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -37,22 +29,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:gravity="center"
-       >
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/carIcon"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:src="@drawable/cancleride" />
-
-<!--        <ImageView-->
-<!--            android:id="@+id/cancelIcon"-->
-<!--            android:layout_width="36dp"-->
-<!--            android:layout_height="36dp"-->
-<!--            android:src="@drawable/ic_cancel_red"-->
-<!--            android:layout_alignEnd="@id/carIcon"-->
-<!--            android:layout_alignTop="@id/carIcon"/>-->
+            android:src="@drawable/cancled" />
     </RelativeLayout>
 
     <!-- Bottom Section -->
@@ -101,15 +84,27 @@
                 android:text="Other"/>
         </RadioGroup>
 
+        <!-- Hidden EditText (visible only when 'Other' is selected) -->
+        <EditText
+            android:id="@+id/etOtherReason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type your reason here..."
+            android:visibility="gone"
+            android:layout_marginTop="8dp"
+            android:padding="10dp"
+            android:background="@drawable/edittext_bg"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"/>
+
         <Button
             android:id="@+id/btnSend"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Send"
-            android:backgroundTint="#FFC107"
+            android:backgroundTint="@color/pink"
             android:textColor="@android:color/white"
             android:layout_marginTop="24dp"
             android:padding="12dp"/>
     </LinearLayout>
-
 </LinearLayout>

@@ -65,7 +65,7 @@
             android:layout_width="49dp"
             android:layout_height="32dp"
             android:gravity="center"
-            android:textColor="#FFC107"
+            android:textColor="#FF66CC"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="6dp"
@@ -90,7 +90,7 @@
         android:layout_height="61dp"
 
         android:layout_marginTop="35dp"
-        android:backgroundTint="#FFC107"
+        android:backgroundTint="@color/pink"
         android:text="Sign Up"
         android:textColor="#FFFFFF" />
 
@@ -100,16 +100,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CREATE NEW ACCOUNT"
-        android:textColor="#FFC107"
+        android:textColor="@color/pink"
         android:textSize="14sp"
         android:layout_marginTop="15dp"
         android:layout_gravity="center_horizontal" />
     <TextView
-        android:id="@+id/tvForgotPassword"
+        android:id="@+id/ForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forgot your password?"
-        android:textColor="#FFC107"
+        android:textColor="@color/pink"
         android:textSize="14sp"
         android:layout_marginTop="15dp"
         android:layout_gravity="center_horizontal" />

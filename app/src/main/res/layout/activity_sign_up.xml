@@ -68,7 +68,7 @@
             android:layout_width="49dp"
             android:layout_height="32dp"
             android:gravity="center"
-            android:textColor="#FFC107"
+            android:textColor="@color/pink"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="6dp"
@@ -93,7 +93,7 @@
             android:layout_height="60dp"
             android:text="Sign Up"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#FFC107"
+            android:backgroundTint="@color/pink"
             android:layout_marginTop="15dp" />
 
         <!-- Forgot Password -->
@@ -102,7 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Forgot your password?"
-            android:textColor="#FFC107"
+            android:textColor="@color/pink"
             android:textSize="14sp"
             android:layout_marginTop="15dp"
             android:layout_gravity="center_horizontal" />

@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import com.example.taxibooking.ForgotPassword.forgotpassword
 
 class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +23,14 @@ class Login : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        val forgotPassword = findViewById<TextView>(R.id.ForgotPassword)
+
+        forgotPassword.setOnClickListener {
+            val intent = Intent(this, forgotpassword::class.java)
+            startActivity(intent)
+        }
+
 
         btnGetStarted.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)

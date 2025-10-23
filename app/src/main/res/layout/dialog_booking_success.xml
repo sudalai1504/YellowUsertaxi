@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/completed"
+        android:src="@drawable/tick"
     android:contentDescription="Success"
     android:layout_gravity="center" />
 
@@ -42,7 +42,7 @@
         android:id="@+id/btnDone"
         android:layout_width="297dp"
         android:layout_height="63dp"
-        android:backgroundTint="#FFD600"
+        android:backgroundTint="@color/pink"
         android:text="Done"
 
         android:textColor="#FFFFFF"

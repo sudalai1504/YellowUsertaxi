@@ -8,7 +8,7 @@
     <!-- Border color and thickness -->
     <stroke
         android:width="2dp"
-        android:color="#F2CB02" /> <!-- Yellow border -->
+        android:color="@color/pink" /> <!-- Yellow border -->
 
     <!-- Rounded corners -->
     <corners android:radius="8dp" />
