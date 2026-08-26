@@ -33,9 +33,7 @@
             android:name=".Locationsearch"
             android:exported="false" />
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAjitXRwC0eML6lWmJgUdlL5RQfwv8XhGo" /> <!-- <meta-data -->
+        <!-- <meta-data -->
         <!-- android:name="com.google.android.geo.API_KEY" -->
         <!-- android:value="AIzaSyCfQXdehEqZ4E_e3WZ1CfyNyA8-W2ZnaRk" /> -->
         <activity
